@@ -3,6 +3,11 @@
 import 'package:agents/adicionar.dart';
 import 'package:agents/imprimir.dart';
 import 'package:agents/src/controller/databaseConection.dart';
+import 'package:agents/src/views/Add.dart';
+import 'package:agents/src/views/Confirma.dart';
+import 'package:agents/src/views/PaginaLog.dart';
+import 'package:agents/src/views/Procurar.dart';
+import 'package:agents/src/views/listar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,13 +36,20 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Agentes'),
-
+      home: paginalog(),
+      
+      initialRoute:'paginalog',
+      
         routes:
         {
 
           '/adicionar':(context) => adicionar(),
           '/imprimir' : (context) => imprimir(data: null,),
+          '/Listar':(context) => listar(),
+          '/Adicionar' : (context) => add(),
+           '/confirma' : (context) => confirma(),
+            '/Procurar' : (context) => procurar(),
+             '/home' : (context) => paginalog(),
         }
     );
   }
