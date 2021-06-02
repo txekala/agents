@@ -54,10 +54,10 @@ var conn;
     
   }
 
-  Future imprimir(pesquisar) async {
+  Future imprimir(data) async {
   
     var conn = await MySqlConnection.connect(settings);
-      var result = await conn.query('select * from agent where id = '+pesquisar+' ');
+      var result = await conn.query('select * from agent where id = '+data+' ');
 
      await conn.close();
      
@@ -65,8 +65,14 @@ var conn;
   }
 
   Future delete(id) async {
+    conn = await MySqlConnection.connect(settings);
+    var results = await conn.query('delete from agent where id ='+id+'');
 
-    var results = await conn.query('delete from agent where id =',id);
+  }
+
+   Future editar(data) async {
+    conn = await MySqlConnection.connect(settings);
+    var results = await conn.query('update agent set name=?, address = ?, phone = ? , email = ? where id=?',data);
 
   }
 }
