@@ -4,7 +4,7 @@ import 'package:mysql1/mysql1.dart';
 class databaseConection  {
 
    var settings = new ConnectionSettings(
-        host: '10.0.4.55',
+        host: 'localhost:3306',
         port: 3306,
         user: 'dev',
         password: 'P@ssw0rd1',
